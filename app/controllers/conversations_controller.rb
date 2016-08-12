@@ -35,6 +35,7 @@ class ConversationsController < ApplicationController
 
   def edit
     @convo = Conversation.find(params["id"])
+    @person_name = Person.find(@convo.person_id).name
   end
 
   def destroy

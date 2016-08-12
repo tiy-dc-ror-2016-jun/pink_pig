@@ -1,6 +1,6 @@
-<h4>Record a conversation</h4>
+<h4>Make changes to this conversation with <%= @person_name %></h4>
 
-<%= form_for @convo, url: conversations_path do |f| %>
+<%= form_for @convo, url: conversation_path, method: :patch do |f| %>
   <%= f.label :medium %>
   <%= f.text_field :medium %>
   <%= f.label :notes %>
