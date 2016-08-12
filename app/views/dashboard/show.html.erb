@@ -1,0 +1,17 @@
+<h1>Welcome, <%= @sales_name %>!</h1>
+<p>
+  <h3><%= @quote.quote %></h3>
+</p>
+<p><%= link_to "See today's conversations", conversations_path %> |
+  <%= link_to "Manage clients", people_path %>
+</p>
+<p>
+  <h2>Today's follow ups</h2>
+</p>
+<% @follow_ups.each do |follow_up| %>
+  <% name = Person.find(follow_up.person_id).name %>
+  <% company = Company.find(follow_up.company_id).name %>
+  <p>
+    <%= link_to "#{name} from #{company}", conversation_path(follow_up.id) %>
+  </p>
+<% end %>

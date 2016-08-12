@@ -11,7 +11,7 @@ class ConversationsController < ApplicationController
   def index
     @page = params[:page].to_i
     per_page = 15
-    @convos = Conersations.page(@page).per(per_page)
+    @convos = Conversation.page(@page).per(per_page)
   end
 
   def create
