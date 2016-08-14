@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'companies/new'
+  get 'companies/index'
+  post 'companies/create'
+
   devise_for :users
 
   get 'dashboard/show'

@@ -5,7 +5,10 @@
 
   <%= f.date_field :follow_up_on, control_col: 'col-sm-3', value: Time.now.to_date.tomorrow %>
 
+  <%= f.select :company, Company.all, control_col: 'col-sm-3' %>
+
   <%= f.text_area :notes, control_col: 'col-sm-10' %>
 
   <%= f.submit "Save Conversation", class: 'btn btn-primary' %>
+
 <% end %>

@@ -1,0 +1,9 @@
+<h1>Add a company</h1>
+<%= form_for @company, url:  do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label "Distributor?" %>
+  <%= f.select :distributor ["true, false"] %>
+  <%= f.submit "Save" %>
+
+<% end %>
