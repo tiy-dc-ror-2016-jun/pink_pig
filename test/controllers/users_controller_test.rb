@@ -9,4 +9,5 @@ class UsersControllerTest < ActionController::TestCase
      #assert_difference "User.count", +1 do
       # post :create, {name: {email: "user1@user.com"}}
   # end
- end
+   
+end

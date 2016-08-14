@@ -75,7 +75,9 @@
             <ul class="nav nav-list">
               <li><%= link_to "Conversations", "/conversations"  %></li>
               <li><%= link_to "People", "/people"  %></li>
-              <li><%= link_to "Edit Users", users_path %></li>
+              <% if current_user && current_user.role == "manager" %>
+                <li><%= link_to "Manage Users", users_path %></li>
+              <% end %>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->
