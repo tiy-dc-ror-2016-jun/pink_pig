@@ -1,6 +1,11 @@
 require 'test_helper'
 
 class ConversationsControllerTest < ActionController::TestCase
+
+  setup do
+    sign_in users(:alex)
+  end
+  
   test "new convo page" do
     response = get :new
     assert_response :success

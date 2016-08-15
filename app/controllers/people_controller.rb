@@ -1,5 +1,7 @@
 class PeopleController < ApplicationController
+
   def index
+    
   end
 
   def show
@@ -8,6 +10,10 @@ class PeopleController < ApplicationController
 
   def new
     @person = Person.new
+  end
+
+  def edit
+    @person = Person.find(params[:id])
   end
 
   def create
@@ -19,9 +25,28 @@ class PeopleController < ApplicationController
     end
   end
 
+  def update
+    @person = Person.find(params[:id])
+    if
+      @person.update(person_params)
+      redirect_to people_path
+    else
+      render 'edit'
+    end
+  end
+
+  def destroy
+    @people = Person.find(params[:id])
+    @people.destroy
+
+    redirect_to people_path
+  end
+
+
 
   private
   def person_params
-      params.require(:user).permit(:full_name, :company_id, :comments)
+    params.require(:person).permit(:full_name, :company_id, :comments)
   end
+
 end

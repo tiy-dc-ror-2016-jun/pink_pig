@@ -1,6 +1,6 @@
 class CompaniesController < ApplicationController
   def index
-    @company = params[:page].to_i
+    @page = params[:page].to_i
     per_page = 5
     @companies = Company.page(@page).per(per_page)
   end
