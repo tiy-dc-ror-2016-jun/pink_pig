@@ -1,10 +1,6 @@
+<h2>Customer Interactions</h2>
+<%= render "convos_table" %>
+
+<%= button_to "Add Interaction", new_conversation_path, method: :get, class: "btn btn-primary" %>
+
 <%=  paginate @convos %>
-
-<% @convos.each do |convo| %>
-<p>
-  <%= convo.user.name.capitalize %> |
-  <%= link_to "View Conversation", conversation_path(convo) %>
-</p>
-<% end %>
-
-<%= link_to "Add Conversation", new_conversation_path %>
