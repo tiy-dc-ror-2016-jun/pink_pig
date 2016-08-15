@@ -1,10 +1,10 @@
 <table class="table">
   <h2>Companies</h2>
 
-    <th>Name</th>
-    <th>Distributor</th>
-    <th></th>
-    <th></th>
+  <th>Name</th>
+  <th>Distributor</th>
+  <th></th>
+  <th></th>
   <tbody>
     <% @companies.each do |company| %>
     <tr>
@@ -15,9 +15,9 @@
       </td>
       <td><%= link_to "Edit", edit_company_path(company.id) %></td>
       <td><%= link_to company_path(company.id), method: :delete, class: "delete" do %>
-       <%= fa_icon("trash-o") %> <span>delete</span>
-       <% end %>
-    </td>
+        <%= fa_icon("trash-o") %> <span>delete</span>
+        <% end %>
+      </td>
     </tr>
     <% end %>
     <tr></tr>
