@@ -1,15 +1,26 @@
 Rails.application.routes.draw do
+  resources :media, except: [:show]
+  # get "companies/new"
+  # get "companies/index"
+  # post "companies/create"
+
+  devise_for :users
+
+  get "dashboard/show"
 
   resources :people
-
+  resources :conversations
+  resources :users
+  resources :companies
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-     
 
-  # Example of regular route:
+  root "welcome#index"
+
+  # root 'welcome#index'
+ 
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

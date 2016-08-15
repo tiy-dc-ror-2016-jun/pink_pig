@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  person_id: 1
+  person: jane
   digits: 301-232-3221
   phone_type: cell
 
 two:
-  person_id: 1
+  person: jon
   digits: 230-111-3432
   phone_type: work

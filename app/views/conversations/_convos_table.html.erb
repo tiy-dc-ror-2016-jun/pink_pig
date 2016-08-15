@@ -1,0 +1,27 @@
+<table class="table">
+
+  <th>Date</th>
+  <th>Client</th>
+  <th>Company</th>
+  <th>Team Member</th>
+  <th>By</th>
+  <th>Follow Up On</th>
+
+  <tbody>
+    <% @convos.each do |convo| %>
+    <tr>
+      <td> <%= convo.created_at.to_date %></td>
+      <td> <%= convo.person.name %></td>
+      <td> <%= convo.company.name %></td>
+      <td> <%= convo.user.name %> </td>
+      <td> <%= convo.medium.name %></td>
+      <td> <%= convo.follow_up_on %></td>
+      <td> <%= link_to "Notes", conversation_path(convo) %> </td>
+    </tr>
+    <% end %>
+
+  </tbody>
+
+</table>
+
+<%=  paginate @convos %>

@@ -7,7 +7,13 @@ class AddressTest < ActiveSupport::TestCase
   end
 
   test "address can be persistant" do
-  address = addresses(:two)
+    address = addresses(:two)
     assert address.valid?
   end
+
+  test "belongs to person" do
+  address = addresses(:one)
+  assert_equal "jane smith", address.person.full_name
+  end
+
 end

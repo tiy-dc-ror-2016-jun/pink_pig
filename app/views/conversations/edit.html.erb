@@ -1,0 +1,14 @@
+<h4>Make changes to this conversation with <%= @person_name %></h4>
+
+<%= form_for @convo, url: conversation_path, method: :patch do |f| %>
+  <%= f.label :medium %>
+  <%= f.text_field :medium %>
+  <%= f.label :notes %>
+  <%= f.text_area :notes %>
+  <%= f.label :follow_up_on %>
+  <%= f.date_field :follow_up_on %>
+
+  <%= f.submit "Update" %>
+  <!-- comment -->
+
+<% end %>

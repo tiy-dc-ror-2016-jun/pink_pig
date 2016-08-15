@@ -3,9 +3,9 @@
 jon:
   title: manager
   full_name: jon smith
-  company_id: 1
+  company: piggy
 
 jane:
   title: boss
   full_name: jane smith
-  company_id: 1
+  company: doggy

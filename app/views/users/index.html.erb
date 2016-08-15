@@ -1,0 +1,7 @@
+<%  @users.each do |user|   %>
+<p><%=  user.name   %>
+  <%=   user.email  %>
+  <%=    user.role   %>
+  <%=  link_to  'Update to Manager',  user_path(user.id), :method  => :put  %>
+</p>
+<%  end %>

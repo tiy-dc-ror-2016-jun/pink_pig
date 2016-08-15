@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+piggy:
   distributor: false
-  name: MyString
-  url: MyString
+  name: PigsRus
+  url: pigsrus@pigs.pig
 
-two:
-  distributor: false
-  name: MyString
-  url: MyString
+doggy:
+  distributor: true
+  name: SalvationDogs
+  url: savedogs@dog.dogs

@@ -1,15 +1,128 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <%= favicon_link_tag %>
-  <title>PinkPig</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<%= render "quotes/quote" %>
-<%= yield %>
 
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "PinkPig" %></title>
+
+
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "application", :media => "all" %>
+
+    <!-- For third-generation iPad with high-resolution Retina display: -->
+    <!-- Size should be 144 x 144 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-144x144-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '144x144' %>
+
+    <!-- For iPhone with high-resolution Retina display: -->
+    <!-- Size should be 114 x 114 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-114x114-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '114x114' %>
+
+    <!-- For first- and second-generation iPad: -->
+    <!-- Size should be 72 x 72 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-72x72-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png', :sizes => '72x72' %>
+
+    <!-- For non-Retina iPhone, iPod Touch, and Android 2.1+ devices: -->
+    <!-- Size should be 57 x 57 pixels -->
+    <%= favicon_link_tag 'apple-touch-icon-precomposed.png', :rel => 'apple-touch-icon-precomposed', :type => 'image/png' %>
+
+    <!-- For all other devices -->
+    <!-- Size should be 32 x 32 pixels -->
+    <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
+
+    <%= javascript_include_tag "application" %>
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.2/html5shiv.min.js" type="text/javascript"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <script>
+      $(document).ready(function() {
+        $("#change_background_1").on("click", function(){
+          $("body").css("background-color", '#663399');
+        });
+        $("#change_background_2").on("click", function(){
+          $("body").css("background-color", '#CFD8DC');
+        });
+        $("#change_background_3").on("click", function(){
+          $("body").css("background-color", '#BDBDBD');
+        });
+      });
+    </script>
+
+    <div class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="http://localhost:3000/">PinkPig</a>
+        <div class="navbar-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav navbar-right">
+            <% if user_signed_in? %>
+                <li><%= link_to "Dashboard", dashboard_show_path %></li>
+                <p class="navbar-text">
+
+                  Signed in as <%= link_to current_user.email, edit_user_registration_path %></p>
+
+                <li>
+                  <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+                </li>
+            <% else %>
+                <li>
+                  <%= link_to "Sign In", new_user_session_path %>
+                </li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-9">
+          <%= bootstrap_flash %>
+          <%= render "quotes/quote" %>
+          <%= yield %>
+        </div>
+        <div class="col-lg-3">
+          <div class="well sidebar-nav">
+            <h4>Hop to</h4>
+            <ul class="nav nav-list">
+
+              <li><%= link_to "Companies", companies_path %></li>
+              <li><%= link_to "Media", media_path %></li>
+              <li><%= link_to "Conversations", "/conversations"  %></li>
+              <li><%= link_to "People", "/people"  %></li>
+              <li><%= link_to "Edit Users", users_path %></li>
+              <li>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type "button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Change Color
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a id="change_background_1">Rebecca Purple</a></li>
+                    <li><a id="change_background_2">Blue</a></li>
+                    <li><a id="change_background_3">Gray</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </div><!--/.well -->
+        </div><!--/span-->
+      </div><!--/row-->
+
+      <footer>
+        <p>&copy; MagicalFarms2016</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+  </body>
 </html>

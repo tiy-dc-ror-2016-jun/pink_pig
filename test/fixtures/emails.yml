@@ -1,11 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  person_id: 1
+  person: jon
   email: pigsfly@pink.com
   email_type: company
 
 two:
-  person_id: 1
-  email: MyString
-  email_type: MyString
+  person: jane
+  email: doggy@doggy.d0g
+  email_type: personal
