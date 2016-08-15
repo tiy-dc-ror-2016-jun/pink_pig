@@ -3,7 +3,9 @@ class MediaController < ApplicationController
 
   # GET /media
   def index
-    @media = Medium.all
+    @page = params[:page].to_i
+    per_page = 5
+    @media = Medium.page(@page).per(per_page)
   end
 
   # GET /media/1
@@ -33,7 +35,7 @@ class MediaController < ApplicationController
   # PATCH/PUT /media/1
   def update
     if @medium.update(medium_params)
-      redirect_to @medium, notice: 'Medium was successfully updated.'
+      redirect_to media_path, notice: 'Medium was successfully updated.'
     else
       render :edit
     end

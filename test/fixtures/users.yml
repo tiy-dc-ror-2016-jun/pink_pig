@@ -7,12 +7,25 @@
 alex:
   name: alex
   email: party@party.com
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
 
 # column: value
 #
 martin:
   name: martin
   email: uncle@sam.com
+
+lisa:
+  id: 4
+  name: renee
+  email: lisa@lisa.com
+  role: salesperson
+
+jenny:
+  id: 3
+  name: jennifer
+  email: jenny@jenny.com
+  role:  manager
 
 
 #  column: value

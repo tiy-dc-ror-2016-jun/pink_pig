@@ -1,7 +1,18 @@
+<table class =  "table">
+<tr>
+<th>Name</th>
+<th>email</th>
+<th>Role</th>
+<th>Update</th>
+</tr>
 <%  @users.each do |user|   %>
-<p><%=  user.name   %>
-  <%=   user.email  %>
-  <%=    user.role   %>
-  <%=  link_to  'Update to Manager',  user_path(user.id), method: :put  %>
-</p>
-<%  end %>
+  <tr>
+    <td><%=  user.name   %></td>
+    <td><%= user.email  %></td>
+    <td><%= user.role   %></td>
+    <% if user.role != "manager" %>
+      <td><%=  link_to  'Update to Manager',  user_path(user.id), method: :put  %></td>
+    <%  end %>
+  <%  end %>
+  </tr>
+</table>

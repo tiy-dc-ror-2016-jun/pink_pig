@@ -99,7 +99,9 @@
               <li><%= link_to "Media", media_path %></li>
               <li><%= link_to "Conversations", "/conversations"  %></li>
               <li><%= link_to "People", "/people"  %></li>
-              <li><%= link_to "Edit Users", users_path %></li>
+              <% if current_user && current_user.manager? %>
+                <li><%= link_to "Manage Users", users_path %></li>
+              <% end %>
               <li>
                 <div class="dropdown">
                   <button class="btn btn-default dropdown-toggle" type "button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
