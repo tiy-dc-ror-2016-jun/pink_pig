@@ -1,6 +1,10 @@
 require "test_helper"
 
 class PeopleControllerTest < ActionController::TestCase
+  setup do
+    sign_in users(:alex)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
@@ -46,7 +50,7 @@ class PeopleControllerTest < ActionController::TestCase
     response = delete :destroy, {id: @person.id}
     assert_response :redirect
     jon = Person.find_by(id: @person.id)
-    assert_equal jon, nil 
+    assert_equal jon, nil
   end
 
 
