@@ -1,13 +1,31 @@
-<h2>Here are the companies</h2>
+<table class="table">
+  <h2>Companies</h2>
 
-<% @companies.each do |company| %>
-<p>
-  <%= company.name %> |
-  <%= link_to "Edit", edit_company_path(company.id) %>
-  <%= link_to "Delete", company_path(company.id), method: :delete %>
-</p>
-<% end %>
+    <th>Name</th>
+    <th>Distributor</th>
+    <th></th>
+    <th></th>
+  <tbody>
+    <% @companies.each do |company| %>
+    <tr>
+      <td>  <%= company.name %> </td>
+      <td>  <% if company.distributor %>
+        <i class="fa fa-check" aria-hidden="true"></i>
+        <% end %>
+      </td>
+      <td><%= link_to "Edit", edit_company_path(company.id) %></td>
+      <td><%= link_to company_path(company.id), method: :delete, class: "delete" do %>
+       <%= fa_icon("trash-o") %> <span>delete</span>
+       <% end %>
+    </td>
+    </tr>
+    <% end %>
+    <tr></tr>
 
-<%= link_to "Add Company", new_company_path %>
+  </tbody>
+
+</table>
+
+<%= button_to "Add Company", new_company_path, method: :get, class: "btn btn-primary" %>
 
 <%=  paginate @companies %>

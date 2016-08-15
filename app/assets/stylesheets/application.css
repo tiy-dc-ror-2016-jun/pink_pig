@@ -12,6 +12,21 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 .form-group {width: 40%;}
+
+ .delete:hover {
+   color: red;
+   text-decoration: none;
+ }
+
+ .delete span {
+    opacity: 0;
+    transition: opacity .25s ease-in-out;
+  }
+
+ .delete:hover span {
+   opacity: 1;
+   color: #a20808;
