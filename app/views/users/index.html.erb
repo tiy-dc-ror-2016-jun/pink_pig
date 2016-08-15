@@ -11,8 +11,8 @@
     <td><%= user.email  %></td>
     <td><%= user.role   %></td>
     <% if user.role != "manager" %>
-      <td><%=  link_to  'Update to Manager',  user_path(user.id), :method  => :put  %></td>
+      <td><%=  link_to  'Update to Manager',  user_path(user.id), method: :put  %></td>
     <%  end %>
+  <%  end %>
   </tr>
-<%  end %>
 </table>

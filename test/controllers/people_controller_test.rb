@@ -1,6 +1,11 @@
 require "test_helper"
 
 class PeopleControllerTest < ActionController::TestCase
+
+  setup do
+    sign_in users(:alex)
+  end
+
   test "should get index" do
     get :index
     assert_response :success
