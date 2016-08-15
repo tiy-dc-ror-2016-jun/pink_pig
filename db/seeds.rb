@@ -22,4 +22,4 @@ Getting the work done and connecting with your unconsious mind", author: "Walter
 Quote.create(quote: "You can't put a price tag on love, but you can on all of
 it's accessories", author: "Melanie Pullen")
 Quote.create(quote: "Whatever we plant in our subconscious mind and nourish
-with repetition and emotion will one day become a realtiy", author: "Earl Nightingale")
+with repetition and emotion will one day become a reality", author: "Earl Nightingale")

@@ -5,6 +5,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "PinkPig" %></title>
+
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag "application", :media => "all" %>
@@ -37,6 +39,19 @@
     <![endif]-->
   </head>
   <body>
+    <script>
+      $(document).ready(function() {
+        $("#change_background_1").on("click", function(){
+          $("body").css("background-color", '#663399');
+        });
+        $("#change_background_2").on("click", function(){
+          $("body").css("background-color", '#CFD8DC');
+        });
+        $("#change_background_3").on("click", function(){
+          $("body").css("background-color", '#BDBDBD');
+        });
+      });
+    </script>
 
     <div class="navbar navbar-default navbar-static-top">
       <div class="container">
@@ -49,7 +64,11 @@
         <div class="navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav navbar-right">
             <% if user_signed_in? %>
-                <p class="navbar-text">Signed in as <%= link_to current_user.email, edit_user_registration_path %></p>
+                <li><%= link_to "Dashboard", dashboard_show_path %></li>
+                <p class="navbar-text">
+
+                  Signed in as <%= link_to current_user.email, edit_user_registration_path %></p>
+
                 <li>
                   <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
                 </li>
@@ -73,11 +92,27 @@
           <div class="well sidebar-nav">
             <h4>Hop to</h4>
             <ul class="nav nav-list">
+
+              <li><%= link_to "Companies", companies_path %></li>
+              <li><%= link_to "Media", media_path %></li>
               <li><%= link_to "Conversations", "/conversations"  %></li>
               <li><%= link_to "People", "/people"  %></li>
               <% if current_user && current_user.manager? %>
                 <li><%= link_to "Manage Users", users_path %></li>
               <% end %>
+              <li>
+                <div class="dropdown">
+                  <button class="btn btn-default dropdown-toggle" type "button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                    Change Color
+                    <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                    <li><a id="change_background_1">Rebecca Purple</a></li>
+                    <li><a id="change_background_2">Blue</a></li>
+                    <li><a id="change_background_3">Gray</a></li>
+                  </ul>
+                </div>
+              </li>
             </ul>
           </div><!--/.well -->
         </div><!--/span-->

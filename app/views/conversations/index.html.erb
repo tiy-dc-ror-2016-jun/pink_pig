@@ -2,6 +2,9 @@
 
 <% @convos.each do |convo| %>
 <p>
-  <%= convo.notes %>
+  <%= convo.user.name.capitalize %> |
+  <%= link_to "View Conversation", conversation_path(convo) %>
 </p>
 <% end %>
+
+<%= link_to "Add Conversation", new_conversation_path %>

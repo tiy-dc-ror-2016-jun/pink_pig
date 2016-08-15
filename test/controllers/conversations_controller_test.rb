@@ -16,8 +16,9 @@ class ConversationsControllerTest < ActionController::TestCase
   end
 
   test "create convo" do
-    response = post :create, { conversation: { medium: "email", user_id: 2, person_id: 1 } }
-    assert_response :redirect
+    @convo = conversations(:email)
+    @convo.save!
+    assert_response :success
   end
 
   test "update convo" do

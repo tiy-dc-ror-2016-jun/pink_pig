@@ -1,7 +1,7 @@
 class ConversationsController < ApplicationController
-
   def new
     @convo = Conversation.new
+    @companies = Company.all
   end
 
   def show
@@ -16,7 +16,10 @@ class ConversationsController < ApplicationController
 
   def create
     @convo = Conversation.new(conversation_params)
-    if @convo.save
+    @convo.user = current_user
+
+    # @convo.update(current_user.id)
+    if @convo.save!
       redirect_to conversations_path
     else
       render :new

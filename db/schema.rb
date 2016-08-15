@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160811202401) do
+ActiveRecord::Schema.define(version: 20160815180132) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,6 +55,12 @@ ActiveRecord::Schema.define(version: 20160811202401) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "media", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "people", force: :cascade do |t|
     t.string   "title"
     t.string   "full_name"
@@ -76,9 +82,9 @@ ActiveRecord::Schema.define(version: 20160811202401) do
   create_table "quotes", force: :cascade do |t|
     t.text     "quote"
     t.string   "author"
+    t.date     "showed_on"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.date     "showed_on"
     t.boolean  "currently_being_used"
     t.boolean  "used_before"
   end
