@@ -32,7 +32,7 @@ class MediaControllerTest < ActionController::TestCase
 
   test "should update medium" do
     patch :update, id: @medium, medium: { name: @medium.name }
-    assert_redirected_to medium_path(assigns(:medium))
+    assert_redirected_to media_path
   end
 
   test "should destroy medium" do
