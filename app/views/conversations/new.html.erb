@@ -1,13 +1,13 @@
 <h4>Record a conversation</h4>
 
-<%= bootstrap_form_for @convo, url: conversations_path, layout: :horizontal do |f| %>
-  <%= f.select :person_id, options_from_collection_for_select(Person.all, 'id', 'full_name'), control_col: 'col-sm-3' %>
+<%= bootstrap_form_for @convo, url: conversations_path do |f| %>
+  <%= f.select :person_id, options_from_collection_for_select(Person.all, 'id', 'full_name'), control_col: 'col-sm-8' %>
 
-  <%= f.select :medium, Medium.pluck(:name), control_col: 'col-sm-3' %>
+  <%= f.select :medium, options_from_collection_for_select(Medium.all, 'id', 'name'), control_col: 'col-sm-8' %>
 
-  <%= f.date_field :follow_up_on, control_col: 'col-sm-3', value: Time.now.to_date.tomorrow %>
+  <%= f.date_field :follow_up_on, control_col: 'col-sm-8', value: Time.now.to_date.tomorrow %>
 
-  <%= f.select :company_id, options_from_collection_for_select(Company.all, 'id', 'name'), control_col: 'col-sm-3' %>
+  <%= f.select :company_id, options_from_collection_for_select(Company.all, 'id', 'name'), control_col: 'col-sm-8' %>
 
   <%= f.text_area :notes, control_col: 'col-sm-10' %>
 
