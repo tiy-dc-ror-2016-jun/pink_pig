@@ -16,28 +16,11 @@ class MediaControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should create medium" do
-    assert_difference('Medium.count') do
-      post :create, medium: { name: @medium.name }
-    end
-
-    assert_redirected_to medium_path(assigns(:medium))
-  end
-
-  test "should show medium" do
-    get :show, id: @medium
-    assert_response :success
-  end
-
   test "should get edit" do
     get :edit, id: @medium
     assert_response :success
   end
 
-  test "should update medium" do
-    patch :update, id: @medium, medium: { name: @medium.name }
-    assert_redirected_to medium_path(assigns(:medium))
-  end
 
   test "should destroy medium" do
     assert_difference('Medium.count', -1) do
