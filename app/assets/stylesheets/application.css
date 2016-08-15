@@ -15,7 +15,8 @@
  *= require font-awesome
  */
 
-.form-group {width: 40%;}
+.form-group {width: 40%;
+  }
 
  .delete:hover {
    color: red;
@@ -30,3 +31,4 @@
  .delete:hover span {
    opacity: 1;
    color: #a20808;
+ }
