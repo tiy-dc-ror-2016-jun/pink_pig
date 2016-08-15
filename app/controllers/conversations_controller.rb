@@ -18,7 +18,8 @@ class ConversationsController < ApplicationController
     @convo = Conversation.new(conversation_params)
     @convo.user = current_user
 
-    if @convo.save
+    # @convo.update(current_user.id)
+    if @convo.save!
       redirect_to conversations_path
     else
       render :new
