@@ -14,9 +14,9 @@
  *= require_self
  *= require font-awesome
  */
-
-.form-group {width: 40%;
-  }
+.devise .form-group {
+  width: 40%;
+}
 
  .delete:hover {
    color: red;

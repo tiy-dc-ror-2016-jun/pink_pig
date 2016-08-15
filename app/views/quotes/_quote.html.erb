@@ -1,4 +1,5 @@
-<h2> Daily Quote </h2>
-<%= Date.today %>
-<%= @quote.quote %>
-<%= @quote.author %>
+
+<blockquote>
+  <p><%= Quote.get_quote.quote %></p>
+  <footer><%= Quote.get_quote.author  %></footer>
+</blockquote>
