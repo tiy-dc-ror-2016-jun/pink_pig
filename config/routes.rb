@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :media
   # get "companies/new"
   # get "companies/index"
   # post "companies/create"
