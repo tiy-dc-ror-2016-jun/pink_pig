@@ -1,6 +1,9 @@
 class PeopleController < ApplicationController
+   before_action :authenticate_user!
 
   def index
+    @person = Person.all
+    render :index
   end
 
   def show
