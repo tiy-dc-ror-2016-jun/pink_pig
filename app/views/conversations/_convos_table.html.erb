@@ -11,10 +11,10 @@
     <% @convos.each do |convo| %>
     <tr>
       <td> <%= convo.created_at.to_date %></td>
-      <td> <%= convo.person.name %></td>
+      <td> <%= convo.person.full_name %></td>
       <td> <%= convo.company.name %></td>
       <td> <%= convo.user.name %> </td>
-      <td> <%= convo.medium.name %></td>
+      <td> <%= convo.medium %></td>
       <td> <%= convo.follow_up_on %></td>
       <td> <%= link_to "Notes", conversation_path(convo) %> </td>
     </tr>
