@@ -2,6 +2,7 @@ require 'test_helper'
 
 class MediaControllerTest < ActionController::TestCase
   setup do
+    sign_in users(:alex)
     @medium = media(:one)
   end
 
@@ -16,11 +17,23 @@ class MediaControllerTest < ActionController::TestCase
     assert_response :success
   end
 
+  test "should create medium" do
+    assert_difference('Medium.count') do
+      post :create, medium: { name: "snapcamera" }
+    end
+
+    assert_redirected_to media_path
+  end
+
   test "should get edit" do
     get :edit, id: @medium
     assert_response :success
   end
 
+  test "should update medium" do
+    patch :update, id: @medium, medium: { name: @medium.name }
+    assert_redirected_to medium_path(assigns(:medium))
+  end
 
   test "should destroy medium" do
     assert_difference('Medium.count', -1) do
