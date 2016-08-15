@@ -3,7 +3,20 @@
 one:
   quote: "You are super cool"
   author: "Lisa"
+  showed_on: <%= Date.today %>
+  currently_being_used: true
+  used_before: false
 
 two:
   quote: "You are super super super super cool"
   author: "Jamie"
+  showed_on:
+  currently_being_used: false
+  used_before: false
+
+three:
+  quote: "this is a quote. Russell is growing annoyed lol"
+  author: "Lisa"
+  currently_being_used: false
+  showed_on: <%= 3.days.ago %>
+  used_before: true
