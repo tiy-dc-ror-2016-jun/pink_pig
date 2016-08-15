@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :media
+  resources :media, except: [:show]
   # get "companies/new"
   # get "companies/index"
   # post "companies/create"
