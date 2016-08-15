@@ -7,11 +7,24 @@
 </p>
 <p>
   <h2>Today's follow ups</h2>
-</p>
-<% @follow_ups.each do |follow_up| %>
-  <% name = Person.find(follow_up.person_id).name %>
-  <% company = Company.find(follow_up.company_id).name %>
-  <p>
-    <%= link_to "#{name} from #{company}", conversation_path(follow_up.id) %>
-  </p>
-<% end %>
+
+<table class="table">
+    <th>Client</th>
+    <th>Median</th>
+    <th>Follow Up Date</th>
+    <th></th>
+  <tbody>
+    <% @follow_ups.each do |follow_up| %>
+    <tr>
+      <td><%= link_to follow_up.person.name, conversation_path(follow_up.id) %> </td>
+      <td><%= follow_up.medium %></td>
+      <td><%= follow_up.follow_up_on %></td>
+      <td><%= link_to follow_up_path(follow_up.id), method: :delete, class: "delete" do %>
+       <%= fa_icon("trash-o") %> <span>delete</span>
+       <% end %>
+    </td>
+    </tr>
+    <% end %>
+    <tr></tr>
+  </tbody>
+</table>
