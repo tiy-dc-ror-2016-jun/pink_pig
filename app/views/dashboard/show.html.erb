@@ -13,15 +13,17 @@
     <th>Median</th>
     <th>Follow Up Date</th>
     <th></th>
+    <th></th>
   <tbody>
     <% @follow_ups.each do |follow_up| %>
     <tr>
-      <td><%= link_to follow_up.person.name, conversation_path(follow_up.id) %> </td>
-      <td><%= follow_up.medium %></td>
-      <td><%= follow_up.follow_up_on %></td>
-      <td><%= link_to follow_up_path(follow_up.id), method: :delete, class: "delete" do %>
-       <%= fa_icon("trash-o") %> <span>delete</span>
-       <% end %>
+    <td><%= link_to follow_up.person.name, person_path(follow_up.person_id) %> </td>
+    <td><%= follow_up.medium %></td>
+    <td><%= follow_up.follow_up_on %></td>
+    <td><%= link_to "Conversation", conversation_path(follow_up.id) %> </td>
+    <td><%= link_to follow_up_path(follow_up.id), method: :delete, class: "delete" do %>
+     <%= fa_icon("trash-o") %> <span>delete</span>
+     <% end %>
     </td>
     </tr>
     <% end %>
