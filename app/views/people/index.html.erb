@@ -1,1 +1,32 @@
-<h1>these are all the people</h1>
+<table class="table">
+  <h2>Clients</h2>
+
+    <th>Title</th>
+    <th>Full Name</th>
+    <th>Company</th>
+    <th>Notes</th>
+    <th></th>
+    <th></th>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td><%= person.title %></td>
+      <td><%= person.full_name %></td>
+      <td><%= person.company %></td>
+      <td><%= person.notes %></td>
+      <td><%= link_to "Edit", edit_person_path(person.id) %></td>
+      <td><%= link_to person_path(person.id), method: :delete, class: "delete" do %>
+       <%= fa_icon("trash-o") %> <span>delete</span>
+       <% end %>
+    </td>
+    </tr>
+    <% end %>
+    <tr></tr>
+
+  </tbody>
+
+</table>
+
+<%= button_to "Add Client", new_person_path, method: :get, class: "btn btn-primary" %>
+
+<%=  paginate @people %>

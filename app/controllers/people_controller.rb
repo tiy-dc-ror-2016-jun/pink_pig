@@ -1,7 +1,9 @@
 class PeopleController < ApplicationController
 
   def index
-    
+    @page = params[:page].to_i
+    per_page = 5
+    @people = Person.page(@page).per(per_page)
   end
 
   def show
@@ -46,7 +48,7 @@ class PeopleController < ApplicationController
 
   private
   def person_params
-    params.require(:person).permit(:full_name, :company_id, :comments)
+    params.require(:person).permit(:full_name, :company_id, :comments, :notes, :title)
   end
 
 end
