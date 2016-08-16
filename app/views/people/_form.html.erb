@@ -16,9 +16,10 @@
     <%= f.text_field :title, class:"form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :name %><br>
+    <%= f.label :full_name %><br>
     <%= f.text_field :full_name, class:"form-control" %>
   </div>
+
   <div class="form-group">
     <%= f.label :company %><br>
     <select class="form-control">
@@ -31,5 +32,25 @@
     <%= f.label :client_notes %><br>
     <%= f.text_field :notes, class:"form-control" %>
   </div>
+
+  <fieldset>
+  <legend>
+    Phone Numbers:
+    <span class="pull-right">
+      <%= link_to fa_icon("plus") + " Add Phone Number", "#", id: "add-phone-number-btn", class: 'btn btn-sm btn-success' %>
+    </span>
+  </legend>
+  <%= f.fields_for :phone_numbers do |phone_number_fields| %>
+    <div class="form-group">
+      <%= phone_number_fields.label :digits %><br>
+      <%= phone_number_fields.text_field :digits, class:"form-control" %>
+      <%= phone_number_fields.label :phone_type %><br>
+      <%= phone_number_fields.text_field :phone_type, class:"form-control" %>
+      <%= phone_number_fields.label :_destroy, "Remove" %>
+      <%= phone_number_fields.check_box :_destroy, class: '_destroy' %>
+    </div>
+  <% end %>
+  </fieldset>
+
     <%= f.submit "Save", class:"btn btn-default btn-primary"%>
 <% end %>

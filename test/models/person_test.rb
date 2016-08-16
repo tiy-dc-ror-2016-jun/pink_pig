@@ -36,4 +36,14 @@ class PersonTest < ActiveSupport::TestCase
     assert_equal "SalvationDogs", person.company.name
   end
 
+  test "person can have a nested phone number" do
+    person = Person.new(full_name: "Russell")
+    person.phone_numbers_attributes = [{digits: '1231231234', phone_type: 'Work'}]
+    person.save
+
+    person.reload
+
+    assert_equal '1231231234', person.phone_numbers[0].digits
+  end
+
 end
