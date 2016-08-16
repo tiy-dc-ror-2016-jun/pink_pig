@@ -1,0 +1,10 @@
+<div class="nested-fields">
+  <div class="form-group">
+    <%= f.label :digits %><br>
+    <%= f.text_field :digits, class:"form-control" %>
+    <%= f.label :phone_type %><br>
+    <%= f.text_field :phone_type, class:"form-control" %>
+
+    <%= link_to_remove_association "remove", f %>
+  </div>
+</div>
