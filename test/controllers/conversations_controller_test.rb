@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class ConversationsControllerTest < ActionController::TestCase
   setup do
@@ -43,6 +43,5 @@ class ConversationsControllerTest < ActionController::TestCase
     assert_raises ActiveRecord::RecordNotFound do
       @convo.reload
     end
-
   end
 end

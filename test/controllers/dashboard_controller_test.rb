@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class DashboardControllerTest < ActionController::TestCase
   setup do
@@ -9,5 +9,4 @@ class DashboardControllerTest < ActionController::TestCase
     get :show
     assert_response :success
   end
-
 end

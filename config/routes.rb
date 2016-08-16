@@ -1,8 +1,5 @@
 Rails.application.routes.draw do
   resources :media, except: [:show]
-  # get "companies/new"
-  # get "companies/index"
-  # post "companies/create"
 
   devise_for :users
 
@@ -20,7 +17,7 @@ Rails.application.routes.draw do
   root "welcome#index"
 
   # root 'welcome#index'
- 
+
   #   get 'products/:id' => 'catalog#view'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)

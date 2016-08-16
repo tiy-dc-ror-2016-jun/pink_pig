@@ -1,5 +1,4 @@
 class PeopleController < ApplicationController
-
   def index
     @page = params[:page].to_i
     per_page = 5
@@ -29,11 +28,9 @@ class PeopleController < ApplicationController
 
   def update
     @person = Person.find(params[:id])
-    if
-      @person.update(person_params)
+    if @person.update(person_params)
       redirect_to people_path
-    else
-      render 'edit'
+    else render "edit"
     end
   end
 
@@ -44,11 +41,9 @@ class PeopleController < ApplicationController
     redirect_to people_path
   end
 
-
-
   private
+
   def person_params
     params.require(:person).permit(:full_name, :company_id, :comments, :notes, :title)
   end
-
 end

@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class MediaControllerTest < ActionController::TestCase
   setup do
@@ -18,7 +18,7 @@ class MediaControllerTest < ActionController::TestCase
   end
 
   test "should create medium" do
-    assert_difference('Medium.count') do
+    assert_difference("Medium.count") do
       post :create, medium: { name: "snapcamera" }
     end
 
@@ -36,7 +36,7 @@ class MediaControllerTest < ActionController::TestCase
   end
 
   test "should destroy medium" do
-    assert_difference('Medium.count', -1) do
+    assert_difference("Medium.count", -1) do
       delete :destroy, id: @medium
     end
 
