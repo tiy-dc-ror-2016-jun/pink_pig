@@ -1,1 +1,28 @@
-<h1>these are all the people</h1>
+<table class="table">
+  <h2>People</h2>
+
+    <th>Name</th>
+    <th>Title</th>
+    <th></th>
+    <th></th>
+  <tbody>
+    <% @people.each do |person| %>
+    <tr>
+      <td>  <%= person.full_name %> </td>
+
+      <td><%= link_to "Edit", edit_person_path(person.id) %></td>
+      <td><%= link_to company_path(company.id), method: :delete, class: "delete" do %>
+       <%= fa_icon("trash-o") %> <span>delete</span>
+       <% end %>
+    </td>
+    </tr>
+    <% end %>
+    <tr></tr>
+
+  </tbody>
+
+</table>
+
+<%= button_to "Add Person", new_person_path, method: :get, class: "btn btn-primary" %>
+
+<%=  paginate @people %>

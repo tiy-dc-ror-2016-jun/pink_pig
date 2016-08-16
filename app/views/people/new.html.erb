@@ -1,2 +1,8 @@
-<h1>People#new</h1>
-<p>Find me in app/views/people/new.html.erb</p>
+<h1>Add a person</h1>
+<%= form_for @person, url: people_path do |f| %>
+  <%= f.label :full_name %>
+  <%= f.text_field :full_name %>
+
+  <%= f.submit "Save" %>
+
+<% end %>
