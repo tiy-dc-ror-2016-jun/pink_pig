@@ -11,10 +11,12 @@ class PeopleController < ApplicationController
 
   def new
     @person = Person.new
+    @person.phone_numbers.build
   end
 
   def edit
     @person = Person.find(params[:id])
+    @person.phone_numbers.build
   end
 
   def create
@@ -44,6 +46,6 @@ class PeopleController < ApplicationController
   private
 
   def person_params
-    params.require(:person).permit(:full_name, :company_id, :comments, :notes, :title)
+    params.require(:person).permit(:full_name, :company_id, :comments, :notes, :title, phone_numbers_attributes: [:id, :digits, :phone_type, :_destroy])
   end
 end
