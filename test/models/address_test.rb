@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class AddressTest < ActiveSupport::TestCase
   test "can create new address" do

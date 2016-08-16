@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class PhoneNumberTest < ActiveSupport::TestCase
   test "can create phone number" do

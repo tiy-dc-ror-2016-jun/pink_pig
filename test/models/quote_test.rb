@@ -1,4 +1,4 @@
-require 'test_helper'
+require "test_helper"
 
 class QuoteTest < ActiveSupport::TestCase
   def test_quote_is_created
@@ -6,20 +6,18 @@ class QuoteTest < ActiveSupport::TestCase
     assert_equal new_quote.author, "Lisa"
   end
 
-  def test_get_quote_todays_quote
-    today  = quotes(:one)
+  def test_grab_quote_todays_quote
+    today = quotes(:one)
     assert_equal(today.showed_on, Date.today)
   end
 
-
-  def test_get_a_new_quote
+  def test_grab_a_new_quote
     today = quotes(:three)
     assert_equal(today.author, "Lisa")
   end
 
-  def test_get_quote_when_todays_quote_is_nil
+  def test_grab_quote_when_todays_quote_is_nil
     today = quotes(:two)
     assert_equal(today.author, "Jamie")
-
   end
 end

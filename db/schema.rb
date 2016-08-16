@@ -82,9 +82,9 @@ ActiveRecord::Schema.define(version: 20160815180132) do
   create_table "quotes", force: :cascade do |t|
     t.text     "quote"
     t.string   "author"
+    t.date     "showed_on"
     t.datetime "created_at",           null: false
     t.datetime "updated_at",           null: false
-    t.date     "showed_on"
     t.boolean  "currently_being_used"
     t.boolean  "used_before"
   end
