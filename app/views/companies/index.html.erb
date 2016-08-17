@@ -18,8 +18,10 @@
         <% end %>
       </td>
       <td><%= link_to "Edit", edit_company_path(company.id) %></td>
-      <td><%= link_to company_path(company.id), method: :delete, class: "delete" do %>
-        <%= fa_icon("trash-o") %> <span>delete</span>
+      <td>
+        <%= link_to company_path(company.id), method: :delete, class: "delete" do %>
+          <%= fa_icon("trash-o") %>
+          <span>delete</span>
         <% end %>
       </td>
     </tr>
