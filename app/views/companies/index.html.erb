@@ -10,21 +10,21 @@
   <th></th>
   <tbody>
     <% @companies.each do |company| %>
-    <tr>
-      <td>  <%= company.name %> </td>
-      <td>  <%= company.phone_numbers.pluck(:digits, :phone_type).join(", ") %> </td>
-      <td>  <% if company.distributor %>
-        <i class="fa fa-check" aria-hidden="true"></i>
-        <% end %>
-      </td>
-      <td><%= link_to "Edit", edit_company_path(company.id) %></td>
-      <td>
-        <%= link_to company_path(company.id), method: :delete, class: "delete" do %>
-          <%= fa_icon("trash-o") %>
-          <span>delete</span>
-        <% end %>
-      </td>
-    </tr>
+      <%= content_tag_for :tr, company do %>
+        <td>  <%= company.name %> </td>
+        <td>  <%= company.phone_numbers.pluck(:digits, :phone_type).join(", ") %> </td>
+        <td>  <% if company.distributor %>
+          <i class="fa fa-check" aria-hidden="true"></i>
+          <% end %>
+        </td>
+        <td><%= link_to "Edit", edit_company_path(company.id) %></td>
+        <td>
+          <%= link_to company_path(company.id), method: :delete, class: "delete" do %>
+            <%= fa_icon("trash-o") %>
+            <span>delete</span>
+          <% end %>
+        </td>
+      <% end %>
     <% end %>
     <tr></tr>
 

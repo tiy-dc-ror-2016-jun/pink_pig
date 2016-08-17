@@ -2,7 +2,7 @@
 <%= form_for @company, url: companies_path do |f| %>
   <%= f.label :name %>
   <%= f.text_field :name %>
-  <%= f.label "Distributor?" %>
+  <%= f.label :distributor, "Distributor?" %>
   <%= f.select :distributor, ["true", "false"] %>
   <%= f.submit "Save" %>
 

@@ -13,6 +13,7 @@ class ActionDispatch::IntegrationTest
   include Warden::Test::Helpers
   def setup
     Warden.test_mode!
+    Capybara.default_driver = :selenium
   end
 
   # Reset sessions and driver between tests
