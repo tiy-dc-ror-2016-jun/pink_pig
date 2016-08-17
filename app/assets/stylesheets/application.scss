@@ -17,18 +17,36 @@
 .devise .form-group {
   width: 40%;
 }
+//
+// .delete:hover {
+//  color: red;
+//  text-decoration: none;
+// }
+//
+// .delete span {
+//   opacity: 0;
+//   transition: opacity .25s ease-in-out;
+// }
+//
+// .delete:hover span {
+//  opacity: 1;
+//  color: #a20808;
+// }
+//
 
- .delete:hover {
-   color: red;
-   text-decoration: none;
- }
+$delete-color: rgb(255,0,0);
 
- .delete span {
+.delete {
+  &:hover {
+    color: $delete-color;
+    text-decoration: none;
+    span {
+      opacity: 1;
+      color: darken($delete-color, 20%);;
+    }
+  }
+  span {
     opacity: 0;
     transition: opacity .25s ease-in-out;
   }
-
- .delete:hover span {
-   opacity: 1;
-   color: #a20808;
- }
+}
